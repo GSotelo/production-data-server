@@ -2,16 +2,7 @@ const fs = require("fs");
 
 exports.runningHoursCtrl = (req, res, next) => {
   console.log("Production controller: Request running hours");
-
-  fs.readFile("/asdfasdf", (err) => {
-    if (err) {
-      next(err);
-    } else {
-      res.send({ status: true, messenger: "Running hours controller" });
-    };
-  })
-
-  //res.send({ status: true, messenger: "Running hours controller" });
+  res.send({ status: true, messenger: "Running hours controller" });
 }
 
 exports.sprayModeCtrl = (req, res, next) => {
