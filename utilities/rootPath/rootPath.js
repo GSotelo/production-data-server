@@ -3,7 +3,7 @@ const path = require("path");
 /**
  * [entryPoint]: server.js
  */
-const entryPoint = require("require-main-filename");
+const entryPoint = require("require-main-filename")();
 
 /**
  * [rootPath]: Directory of "entryPoint"
