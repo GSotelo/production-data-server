@@ -7,7 +7,14 @@ const compression = require("compression");
 /**
  * Own modules
  */
-const productionRoutes = require("./routes/production");
+const monitoringRoutes = require("./routes/monitoring");
+const colorChangeRoutes = require("./routes/colorChange");
+const sprayedPowderRoutes = require("./routes/sprayedPowder");
+const freshPowderRoutes = require("./routes/freshPowder");
+const powderTypeRoutes = require("./routes/powderType");
+const electricityAirConsumptionRoutes = require("./routes/electricityAir");
+const humidityTemperatureRoutes = require("./routes/humidityTemperature");
+const airPressureRoutes = require("./routes/airPressure");
 const errorCtrl = require("./controllers/error/error");
 
 /**
@@ -34,7 +41,14 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * Routes
  */
-app.use("/production/categories", productionRoutes);
+app.use("/production/monitoring", monitoringRoutes);
+app.use("/production/color-change", colorChangeRoutes);
+app.use("/consumption/sprayed-powder", sprayedPowderRoutes);
+app.use("/consumption/fresh-powder", freshPowderRoutes);
+app.use("/consumption/powder-type", powderTypeRoutes);
+app.use("/consumption/electricity-air", electricityAirConsumptionRoutes);
+app.use("/consumption/humidity-temperature", humidityTemperatureRoutes);
+app.use("/consumption/air-pressure", airPressureRoutes);
 
 /**
  * Gerneral error handler
@@ -45,3 +59,11 @@ app.use(errorCtrl);
  * Running server
  */
 app.listen(port, () => console.log('Server listening on port 5000'))
+
+/**
+ * TO DO: RESTART WITH PROCESS MANAGER
+ */
+// process.on('uncaughtException', err => {
+//   console.error('There was an uncaught error')
+
+// })
