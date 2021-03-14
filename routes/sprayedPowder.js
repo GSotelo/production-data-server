@@ -5,7 +5,7 @@ const { sprayedPowderTotalCtrl, sprayedPowderRecipeCtrl } = require("../controll
 const { flexibleCtrl } = require("../controllers/flexible/flexible");
 
 router.get("/total/:timeRange", sprayedPowderTotalCtrl);
-router.get("/recipe/:timeRange", sprayedPowderRecipeCtrl);
+router.get("/recipes/:id/:timeRange", sprayedPowderRecipeCtrl);
 router.post("/", flexibleCtrl);
 
 module.exports = router;

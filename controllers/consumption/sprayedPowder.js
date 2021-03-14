@@ -17,6 +17,7 @@ exports.sprayedPowderTotalCtrl = wrapper(async (req, res, next) => {
 exports.sprayedPowderRecipeCtrl = wrapper(async (req, res, next) => {
   console.log("[sprayedPowderRecipeCtrl]: Sprayed powder calculated per Recipe");
   const timeRange = req.params.timeRange;
-  const filteredData = await filterDataFromFile("sprayed_powder_recipe.csv", timeRange)
+  const id = req.params.id;
+  const filteredData = await filterDataFromFile(`sprayed_powder_recipe_${id}.csv`, timeRange)
   res.send(filteredData);
 });
