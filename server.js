@@ -15,6 +15,7 @@ const powderTypeRoutes = require("./routes/powderType");
 const electricityAirConsumptionRoutes = require("./routes/electricityAir");
 const humidityTemperatureRoutes = require("./routes/humidityTemperature");
 const airPressureRoutes = require("./routes/airPressure");
+const coatmasterFlexRoutes = require("./routes/coatmasterFlex");
 const errorCtrl = require("./controllers/error/error");
 
 /**
@@ -49,6 +50,7 @@ app.use("/consumption/powder-type", powderTypeRoutes);
 app.use("/consumption/electricity-air", electricityAirConsumptionRoutes);
 app.use("/consumption/humidity-temperature", humidityTemperatureRoutes);
 app.use("/consumption/air-pressure", airPressureRoutes);
+app.use("/coatmaster/flex", coatmasterFlexRoutes);
 
 /**
  * Gerneral error handler
