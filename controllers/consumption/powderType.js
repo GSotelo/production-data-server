@@ -14,11 +14,12 @@ exports.powderTypeCtrl = wrapper(async (req, res, next) => {
   let filteredData = [];
 
   // Read, parse and filter csv file based on given time range
-  if (id === "t1") filteredData = await filterDataFromFile("consumption_powder_type_1.csv", timeRange)
-  if (id === "t2") filteredData = await filterDataFromFile("consumption_powder_type_2.csv", timeRange)
+  if (id) {
+    filteredData = await filterDataFromFile(`consumption_powder_type_${id}.csv`, timeRange);
+    return res.send(filteredData);
+  }
 
   // If no type is given, then send data of all powder types
   filteredData = await filterDataFromFile("consumption_powder_all_types.csv", timeRange);
-
   res.send(filteredData);
 });

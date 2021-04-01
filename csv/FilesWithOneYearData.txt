@@ -1,0 +1,24 @@
+1-. importar contexto
+2.- anadir contexto a graph container
+3.- crear constructor y anadir context values
+
+
+FILES READY.
+
+consumption_air_1
+consumption_air_2
+
+consumption_powder_all_types
+consumption_powder_type_1
+consumption_powder_type_2
+
+consumption_electricity_1
+consumption_electricity_2
+
+powder_big_bag
+powder_spectrum
+powder_total_fresh
+
+sprayed_powder_recipe_1
+sprayed_powder_recipe_2
+sprayed_powder_total

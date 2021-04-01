@@ -11,12 +11,7 @@ exports.electricityConsumptionCtrl = wrapper(async (req, res, next) => {
   console.log("[electricityConsumptionCtrl]: Electricity comsumption");
   const timeRange = req.params.timeRange;
   const id = req.params.id;
-  let filteredData = [];
-
-  // Read, parse and filter csv file based on given time range
-  if (id === "p1") filteredData = await filterDataFromFile("consumption_electricity_p1.csv", timeRange)
-  if (id === "p2") filteredData = await filterDataFromFile("consumption_electricity_p2.csv", timeRange)
-
+  const filteredData = await filterDataFromFile(`consumption_electricity_${id}.csv`, timeRange);
   res.send(filteredData);
 });
 
@@ -24,11 +19,6 @@ exports.airConsumptionCtrl = wrapper(async (req, res, next) => {
   console.log("[airConsumptionCtrl]: Air comsumption");
   const timeRange = req.params.timeRange;
   const id = req.params.id;
-  let filteredData = [];
-
-  // Read, parse and filter csv file based on given time range
-  if (id === "p1") filteredData = await filterDataFromFile("consumption_air_p1.csv", timeRange)
-  if (id === "p2") filteredData = await filterDataFromFile("consumption_air_p2.csv", timeRange)
-
+  const filteredData = await filterDataFromFile(`consumption_air_${id}.csv`, timeRange)
   res.send(filteredData);
 });
