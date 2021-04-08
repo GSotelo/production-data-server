@@ -28,11 +28,25 @@ exports.selectDataPerDay = arr => {
 exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
   let startDate;
   let filteredData = [];
-  const endDate = createTodayObject();
+  const endDate = createTodayObject().add(1,"day");
 
-  if (timeRange === "week") startDate = endDate.subtract(6, "day");
+  if (timeRange === "week") startDate = endDate.subtract(7, "day");
   if (timeRange === "month") startDate = endDate.subtract(1, "month");
 
+  arr.map(el => {
+    if (el.timestamp.isBetween(startDate, endDate, "minute")) {
+      filteredData.push(el);
+    }
+  });
+
+  return filteredData;
+};
+
+exports.selectDataCurrentPreviousDay = (arr) => {
+  let filteredData = [];
+  const endDate = createTodayObject().add(1,"day");
+  const startDate = endDate.subtract(2, "day");
+  
   arr.map(el => {
     if (el.timestamp.isBetween(startDate, endDate, "minute")) {
       filteredData.push(el);
@@ -62,6 +76,8 @@ exports.filterDataFromFile = async (filename, timeRange, startDate, endDate) => 
   if (timeRange === "day") return this.selectDataPerDay(data);
   if (timeRange === "week") return this.selectDataPerWeekOrMonth(data, "week");
   if (timeRange === "month") return this.selectDataPerWeekOrMonth(data, "month");
+  if (timeRange === "custom") return this.selectDataCurrentPreviousDay(data);
+
   if (custom) return this.selectDataPerTimeframe(data, timeRange.startDate, timeRange.endDate);
   return [];
 };
