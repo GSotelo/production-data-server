@@ -29,11 +29,24 @@ dayjs.extend(customParseFormat);
  */
 
 exports.createDateObject = function (dateAsString) {
-  return dayjs.utc(dateAsString, "DD/MM/YYYY HH:mm");
+  return (// IMPORTANT: This format should match the timestamp in csv file
+    dayjs.utc(dateAsString, "DD/MM/YYYY HH:mm")
+  );
 };
+/**
+ * Handlers
+ */
+
+
+exports.createDateObjectWithFormat = function (dateAsString, format) {
+  return (// IMPORTANT: This format should match the timestamp in csv file
+    dayjs.utc(dateAsString, format)
+  );
+}; //exports.createTodayObject = () => dayjs.utc(new Date());
+
 
 exports.createTodayObject = function () {
-  return dayjs.utc(new Date());
+  return dayjs();
 };
 
 exports.getTimeDifference = function (startDate, endDate, timeRange) {

@@ -16,7 +16,8 @@ var readCSV = require("./read");
 var rootPath = require("../rootPath/rootPath");
 
 var _require = require("../time/time"),
-    createTodayObject = _require.createTodayObject;
+    createTodayObject = _require.createTodayObject,
+    createDateObjectWithFormat = _require.createDateObjectWithFormat;
 
 exports.requestFilePath = function (filename) {
   return path.join(rootPath, "csv", filename);
@@ -25,9 +26,17 @@ exports.requestFilePath = function (filename) {
 exports.selectDataPerDay = function (arr) {
   var filteredData = [];
   var today = createTodayObject();
-  arr.map(function (el) {
-    if (el.timestamp.isSame(today, "day")) {
-      filteredData.push(el);
+  arr.map(function (_ref) {
+    var timestamp = _ref.timestamp,
+        value = _ref.value,
+        variable = _ref.variable;
+
+    if (timestamp && timestamp.isSame(today, "day")) {
+      filteredData.push({
+        timestamp: timestamp,
+        value: value,
+        variable: variable
+      });
     }
   });
   return filteredData;
@@ -39,30 +48,57 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
   var endDate = createTodayObject().add(1, "day");
   if (timeRange === "week") startDate = endDate.subtract(7, "day");
   if (timeRange === "month") startDate = endDate.subtract(1, "month");
-  arr.map(function (el) {
-    if (el.timestamp.isBetween(startDate, endDate, "minute")) {
-      filteredData.push(el);
+  arr.map(function (_ref2) {
+    var timestamp = _ref2.timestamp,
+        value = _ref2.value,
+        variable = _ref2.variable;
+
+    if (timestamp && timestamp.isBetween(startDate, endDate, "minute")) {
+      filteredData.push({
+        timestamp: timestamp,
+        value: value,
+        variable: variable
+      });
     }
   });
   return filteredData;
 };
 
 exports.selectDataCurrentPreviousDay = function (arr) {
-  var filteredData = [];
-  var endDate = createTodayObject().add(1, "day");
-  var startDate = endDate.subtract(2, "day");
-  arr.map(function (el) {
-    if (el.timestamp.isBetween(startDate, endDate, "minute")) {
-      filteredData.push(el);
+  //console.log("EXPRESS: PREVIOUS DAY", timeRange);
+  var filteredData = []; // const endDate = createTodayObject().add(1, "day");
+  // const startDate = endDate.subtract(2, "day");
+  // arr.map(({ timestamp, value, variable }) => {
+  //   if (timestamp && timestamp.isBetween(startDate, endDate, "minute")) {
+  //     filteredData.push({ timestamp, value, variable });
+  //   }
+  // });
+
+  var endDate = createTodayObject();
+  var startDate = endDate.subtract(1, "day");
+  arr.map(function (_ref3) {
+    var timestamp = _ref3.timestamp,
+        value = _ref3.value,
+        variable = _ref3.variable;
+
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
+      filteredData.push({
+        timestamp: timestamp,
+        value: value,
+        variable: variable
+      });
     }
   });
   return filteredData;
 };
 
 exports.selectDataPerTimeframe = function (arr, startDate, endDate) {
-  var filteredData = [];
+  var filteredData = []; // The given time format matches the one sent by React element (Datepicker)
+
+  var startDateDayjs = createDateObjectWithFormat(startDate, "YYYY-MM-DDT HH-mm-ss-SSS");
+  var endDateDayjs = createDateObjectWithFormat(endDate, "YYYY-MM-DDT HH-mm-ss-SSS");
   arr.map(function (el) {
-    if (el.timestamp.isBetween(startDate, endDate, "minute")) {
+    if (el.timestamp && el.timestamp.isBetween(startDateDayjs, endDateDayjs, "day", "[]")) {
       filteredData.push(el);
     }
   });

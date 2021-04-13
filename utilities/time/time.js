@@ -22,10 +22,20 @@ dayjs.extend(customParseFormat);
  * Handlers
  */
 exports.createDateObject = dateAsString => (
+  // IMPORTANT: This format should match the timestamp in csv file
   dayjs.utc(dateAsString, "DD/MM/YYYY HH:mm")
 );
 
-exports.createTodayObject = () => dayjs.utc(new Date());
+/**
+ * Handlers
+ */
+exports.createDateObjectWithFormat = (dateAsString, format) => (
+  // IMPORTANT: This format should match the timestamp in csv file
+  dayjs.utc(dateAsString, format)
+);
+
+//exports.createTodayObject = () => dayjs.utc(new Date());
+exports.createTodayObject = () => dayjs();
 
 exports.getTimeDifference = (startDate, endDate, timeRange) => endDate.diff(startDate, timeRange, true);
 

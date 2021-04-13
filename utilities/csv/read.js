@@ -14,9 +14,18 @@ const { createDateObject } = require("../time/time");
  */
 const fsPromises = fs.promises;
 
-const mapValues = ({ header, index, value }) => (
-  header === "timestamp" ? createDateObject(value) : value
-);
+const mapValues = ({ header, index, value }) => {
+  
+  if (header === "timestamp") {
+    return createDateObject(value);
+  }
+
+  if (header === "value") {
+    return parseFloat(value);
+  }
+
+  return value;
+};
 
 const readCSV = async path => {
   // Csv parser configuration
