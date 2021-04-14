@@ -2,6 +2,8 @@
 
 var _this = void 0;
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /**
  * Native and third-party modules
  */
@@ -22,6 +24,11 @@ var _require = require("../time/time"),
 exports.requestFilePath = function (filename) {
   return path.join(rootPath, "csv", filename);
 };
+/**
+ * Handler executed when user click "day"
+ * control button on trend elements
+ */
+
 
 exports.selectDataPerDay = function (arr) {
   var filteredData = [];
@@ -41,19 +48,22 @@ exports.selectDataPerDay = function (arr) {
   });
   return filteredData;
 };
+/**
+ * Handler executed when user click "week" or 
+ * "month" control button on deck elements
+ */
+
 
 exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
-  var startDate;
   var filteredData = [];
-  var endDate = createTodayObject().add(1, "day");
-  if (timeRange === "week") startDate = endDate.subtract(7, "day");
-  if (timeRange === "month") startDate = endDate.subtract(1, "month");
+  var endDate = createTodayObject(new Date());
+  var startDate = endDate.subtract(1, timeRange);
   arr.map(function (_ref2) {
     var timestamp = _ref2.timestamp,
         value = _ref2.value,
         variable = _ref2.variable;
 
-    if (timestamp && timestamp.isBetween(startDate, endDate, "minute")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
@@ -63,25 +73,22 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
   });
   return filteredData;
 };
+/**
+ * Handler executed when user click "day", "week" or 
+ * "month" control button on deck elements
+ */
 
-exports.selectDataCurrentPreviousDay = function (arr) {
-  //console.log("EXPRESS: PREVIOUS DAY", timeRange);
-  var filteredData = []; // const endDate = createTodayObject().add(1, "day");
-  // const startDate = endDate.subtract(2, "day");
-  // arr.map(({ timestamp, value, variable }) => {
-  //   if (timestamp && timestamp.isBetween(startDate, endDate, "minute")) {
-  //     filteredData.push({ timestamp, value, variable });
-  //   }
-  // });
 
+exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
+  var filteredData = [];
   var endDate = createTodayObject();
-  var startDate = endDate.subtract(1, "day");
+  var startDate = endDate.subtract(1, timeRange);
   arr.map(function (_ref3) {
     var timestamp = _ref3.timestamp,
         value = _ref3.value,
         variable = _ref3.variable;
 
-    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, timeRange, "[]")) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
@@ -91,6 +98,11 @@ exports.selectDataCurrentPreviousDay = function (arr) {
   });
   return filteredData;
 };
+/**
+ * Handler executed when user select "start" and "end"
+ * date using the "Datepicker" React element
+ */
+
 
 exports.selectDataPerTimeframe = function (arr, startDate, endDate) {
   var filteredData = []; // The given time format matches the one sent by React element (Datepicker)
@@ -105,8 +117,8 @@ exports.selectDataPerTimeframe = function (arr, startDate, endDate) {
   return filteredData;
 };
 
-exports.filterDataFromFile = function _callee(filename, timeRange, startDate, endDate) {
-  var filePath, data, custom;
+exports.filterDataFromFile = function _callee(filename, timeRange) {
+  var filePath, data, custom, isRequestFromDatePicker, isRequestFromDeck, timeRangeDeck;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -117,51 +129,56 @@ exports.filterDataFromFile = function _callee(filename, timeRange, startDate, en
 
         case 3:
           data = _context.sent;
-          custom = timeRange.startDate && timeRange.endDate; // Filter data
+          // Makes reference to "Datepicker" React element (2 "moment" objects)
+          custom = timeRange.startDate && timeRange.endDate; // Here I define the "timeRange" used by "control buttons" of "deck" elements
+
+          isRequestFromDatePicker = _typeof(timeRange) === 'object' && timeRange !== null;
+          isRequestFromDeck = !isRequestFromDatePicker && timeRange.split("-")[0] === "deck";
+          timeRangeDeck = isRequestFromDeck && timeRange.split("-")[1]; // Filtering data
 
           if (!(timeRange === "day")) {
-            _context.next = 7;
+            _context.next = 10;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerDay(data));
 
-        case 7:
+        case 10:
           if (!(timeRange === "week")) {
-            _context.next = 9;
+            _context.next = 12;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerWeekOrMonth(data, "week"));
 
-        case 9:
+        case 12:
           if (!(timeRange === "month")) {
-            _context.next = 11;
+            _context.next = 14;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerWeekOrMonth(data, "month"));
 
-        case 11:
-          if (!(timeRange === "custom")) {
-            _context.next = 13;
+        case 14:
+          if (!isRequestFromDeck) {
+            _context.next = 16;
             break;
           }
 
-          return _context.abrupt("return", _this.selectDataCurrentPreviousDay(data));
+          return _context.abrupt("return", _this.selectDataCurrentPreviousTimeframe(data, timeRangeDeck));
 
-        case 13:
+        case 16:
           if (!custom) {
-            _context.next = 15;
+            _context.next = 18;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerTimeframe(data, timeRange.startDate, timeRange.endDate));
 
-        case 15:
+        case 18:
           return _context.abrupt("return", []);
 
-        case 16:
+        case 19:
         case "end":
           return _context.stop();
       }
