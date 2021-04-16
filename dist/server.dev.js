@@ -6,6 +6,8 @@
 var express = require("express");
 
 var compression = require("compression");
+
+var path = require("path");
 /**
  * Own modules
  */
@@ -29,6 +31,8 @@ var airPressureRoutes = require("./routes/airPressure");
 
 var coatmasterFlexRoutes = require("./routes/coatmasterFlex");
 
+var reactRoutes = require("./routes/react");
+
 var errorCtrl = require("./controllers/error/error");
 /**
  * General scope
@@ -37,6 +41,11 @@ var errorCtrl = require("./controllers/error/error");
 
 var app = express();
 var port = process.env.PORT || 5000;
+/**
+ * Serve static files
+ */
+
+app.use(express["static"](path.join(__dirname, 'build')));
 /**
  * Compress response bodies
  */
@@ -67,6 +76,7 @@ app.use("/consumption/electricity-air", electricityAirConsumptionRoutes);
 app.use("/consumption/humidity-temperature", humidityTemperatureRoutes);
 app.use("/consumption/air-pressure", airPressureRoutes);
 app.use("/coatmaster/flex", coatmasterFlexRoutes);
+app.use(reactRoutes);
 /**
  * Gerneral error handler
  */
