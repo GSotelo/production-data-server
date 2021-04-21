@@ -24,6 +24,9 @@ exports.spectrumPowderCtrl = wrapper(async (req, res, next) => {
 exports.bigbagPowderCtrl = wrapper(async (req, res, next) => {
   console.log("[bigbagPowderCtrl]: Big bag powder");
   const timeRange = req.params.timeRange;
-  const filteredData = await filterDataFromFile("powder_big_bag.csv", timeRange)
+  const id = req.params.id;
+  //const filteredData = await filterDataFromFile("powder_big_bag.csv", timeRange)
+  //const filteredData = await filterDataFromFile("powder_big_bag.csv", timeRange)
+  const filteredData = await filterDataFromFile(`powder_big_bag_${id}.csv`, timeRange);
   res.send(filteredData);
 });

@@ -17,6 +17,7 @@ exports.requestFilePath = (filename) => path.join(rootPath, "csv", filename);
  * control button on trend elements
  */
 exports.selectDataPerDay = arr => {
+  //console.log("[selectDataPerDay]");
   let filteredData = [];
   const today = createTodayObject();
 
@@ -31,15 +32,16 @@ exports.selectDataPerDay = arr => {
 
 /**
  * Handler executed when user click "week" or 
- * "month" control button on deck elements
+ * "month" control button on trend elements
  */
 exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
+  //console.log("[selectDataPerWeekOrMonth]");
   let filteredData = [];
   const endDate = createTodayObject(new Date());
   const startDate = endDate.subtract(1, timeRange);
 
   arr.map(({ timestamp, value, variable }) => {
-    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
       filteredData.push({ timestamp, value, variable });
     }
   });
@@ -52,12 +54,14 @@ exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
  * "month" control button on deck elements
  */
 exports.selectDataCurrentPreviousTimeframe = (arr, timeRange) => {
+  //console.log("[selectDataCurrentPreviousTimeframe]");
   let filteredData = [];
+  
   const endDate = createTodayObject();
-  const startDate = endDate.subtract(1, timeRange);
+  const startDate = endDate.subtract(2, timeRange);
 
   arr.map(({ timestamp, value, variable }) => {
-    if (timestamp && timestamp.isBetween(startDate, endDate, timeRange, "[]")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
       filteredData.push({ timestamp, value, variable });
     }
   });
@@ -67,9 +71,10 @@ exports.selectDataCurrentPreviousTimeframe = (arr, timeRange) => {
 
 /**
  * Handler executed when user select "start" and "end"
- * date using the "Datepicker" React element
+ * date using the "Datepicker" React element (applies for deck and trend elements)
  */
 exports.selectDataPerTimeframe = (arr, startDate, endDate) => {
+  console.log("[selectDataPerTimeframe]");
   let filteredData = [];
 
   // The given time format matches the one sent by React element (Datepicker)

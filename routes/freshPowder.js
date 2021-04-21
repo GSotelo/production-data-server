@@ -6,7 +6,7 @@ const { flexibleCtrl } = require("../controllers/flexible/flexible");
 
 router.get("/total/:timeRange", totalPowderCtrl);
 router.get("/spectrum/:timeRange", spectrumPowderCtrl);
-router.get("/bigbag/:timeRange", bigbagPowderCtrl);
+router.get("/bigbag/:id/:timeRange", bigbagPowderCtrl);
 router.post("/", flexibleCtrl);
 
 module.exports = router;

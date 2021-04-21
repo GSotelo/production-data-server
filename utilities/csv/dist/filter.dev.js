@@ -31,6 +31,7 @@ exports.requestFilePath = function (filename) {
 
 
 exports.selectDataPerDay = function (arr) {
+  //console.log("[selectDataPerDay]");
   var filteredData = [];
   var today = createTodayObject();
   arr.map(function (_ref) {
@@ -50,11 +51,12 @@ exports.selectDataPerDay = function (arr) {
 };
 /**
  * Handler executed when user click "week" or 
- * "month" control button on deck elements
+ * "month" control button on trend elements
  */
 
 
 exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
+  //console.log("[selectDataPerWeekOrMonth]");
   var filteredData = [];
   var endDate = createTodayObject(new Date());
   var startDate = endDate.subtract(1, timeRange);
@@ -63,7 +65,7 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
         value = _ref2.value,
         variable = _ref2.variable;
 
-    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
@@ -80,15 +82,16 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
 
 
 exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
+  //console.log("[selectDataCurrentPreviousTimeframe]");
   var filteredData = [];
   var endDate = createTodayObject();
-  var startDate = endDate.subtract(1, timeRange);
+  var startDate = endDate.subtract(2, timeRange);
   arr.map(function (_ref3) {
     var timestamp = _ref3.timestamp,
         value = _ref3.value,
         variable = _ref3.variable;
 
-    if (timestamp && timestamp.isBetween(startDate, endDate, timeRange, "[]")) {
+    if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
@@ -100,11 +103,12 @@ exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
 };
 /**
  * Handler executed when user select "start" and "end"
- * date using the "Datepicker" React element
+ * date using the "Datepicker" React element (applies for deck and trend elements)
  */
 
 
 exports.selectDataPerTimeframe = function (arr, startDate, endDate) {
+  console.log("[selectDataPerTimeframe]");
   var filteredData = []; // The given time format matches the one sent by React element (Datepicker)
 
   var startDateDayjs = createDateObjectWithFormat(startDate, "YYYY-MM-DDT HH-mm-ss-SSS");
