@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * Own modules
  */
@@ -14,6 +16,12 @@ exports.flexibleCtrl = wrapper(async (req, res, next) => {
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
   const filename = req.body.filename;
+
+  if (_.isObject(filename)) {
+    // Get data for all elements
+    const data = await Promise.all(filename.map(async el => await filterDataFromFile(el, { startDate, endDate })));
+    return res.send(data);
+  }
 
   const filteredData = await filterDataFromFile(filename, { startDate, endDate });
   res.send(filteredData);

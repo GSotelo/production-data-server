@@ -56,7 +56,7 @@ exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
 exports.selectDataCurrentPreviousTimeframe = (arr, timeRange) => {
   //console.log("[selectDataCurrentPreviousTimeframe]");
   let filteredData = [];
-  
+
   const endDate = createTodayObject();
   const startDate = endDate.subtract(2, timeRange);
 
@@ -97,16 +97,32 @@ exports.filterDataFromFile = async (filename, timeRange) => {
   // Makes reference to "Datepicker" React element (2 "moment" objects)
   const custom = timeRange.startDate && timeRange.endDate;
 
-  // Here I define the "timeRange" used by "control buttons" of "deck" elements
+  /**
+   * Here I selet requests from control buttons within "deck" elements
+   * Datepicker will provide no comparison between current and previous timeframes
+   */
   const isRequestFromDatePicker = typeof timeRange === 'object' && timeRange !== null;
   const isRequestFromDeck = !isRequestFromDatePicker && timeRange.split("-")[0] === "deck";
-  const timeRangeDeck = isRequestFromDeck && timeRange.split("-")[1];
 
-  // Filtering data
+  /**
+   * Here I check if I need a timeframe similar as the one used in "deck" elements.
+   * This situation applies when I have a trend (i.e. line) and one card (with footer)
+   * that requires to show current versus previous data (refer to color change screen)
+   */
+  const isPreviousTimeRequired = (typeof timeRange === 'string' && timeRange.split("-")[0] === "multi") || isRequestFromDeck;
+  const multiTimeRange = isPreviousTimeRequired && timeRange.split("-")[1];
+
+  // Normal behaviour: Requires one asset at a time using control buttons ("day", "week", "month")
   if (timeRange === "day") return this.selectDataPerDay(data);
   if (timeRange === "week") return this.selectDataPerWeekOrMonth(data, "week");
   if (timeRange === "month") return this.selectDataPerWeekOrMonth(data, "month");
-  if (isRequestFromDeck) return this.selectDataCurrentPreviousTimeframe(data, timeRangeDeck);
+
+  // Normal behaviour: Requires one asset at a time using datepickers
   if (custom) return this.selectDataPerTimeframe(data, timeRange.startDate, timeRange.endDate);
+
+  // Custom behaviour: Requires more than one asset at a time using control buttons either on deck elements or trends
+  if (isPreviousTimeRequired) return this.selectDataCurrentPreviousTimeframe(data, multiTimeRange);
+
+  // Default when no criteria matches
   return [];
 };

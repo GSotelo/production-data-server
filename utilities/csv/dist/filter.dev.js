@@ -122,7 +122,7 @@ exports.selectDataPerTimeframe = function (arr, startDate, endDate) {
 };
 
 exports.filterDataFromFile = function _callee(filename, timeRange) {
-  var filePath, data, custom, isRequestFromDatePicker, isRequestFromDeck, timeRangeDeck;
+  var filePath, data, custom, isRequestFromDatePicker, isRequestFromDeck, isPreviousTimeRequired, multiTimeRange;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -134,55 +134,66 @@ exports.filterDataFromFile = function _callee(filename, timeRange) {
         case 3:
           data = _context.sent;
           // Makes reference to "Datepicker" React element (2 "moment" objects)
-          custom = timeRange.startDate && timeRange.endDate; // Here I define the "timeRange" used by "control buttons" of "deck" elements
+          custom = timeRange.startDate && timeRange.endDate;
+          /**
+           * Here I selet requests from control buttons within "deck" elements
+           * Datepicker will provide no comparison between current and previous timeframes
+           */
 
           isRequestFromDatePicker = _typeof(timeRange) === 'object' && timeRange !== null;
           isRequestFromDeck = !isRequestFromDatePicker && timeRange.split("-")[0] === "deck";
-          timeRangeDeck = isRequestFromDeck && timeRange.split("-")[1]; // Filtering data
+          /**
+           * Here I check if I need a timeframe similar as the one used in "deck" elements.
+           * This situation applies when I have a trend (i.e. line) and one card (with footer)
+           * that requires to show current versus previous data (refer to color change screen)
+           */
+
+          isPreviousTimeRequired = typeof timeRange === 'string' && timeRange.split("-")[0] === "multi" || isRequestFromDeck;
+          multiTimeRange = isPreviousTimeRequired && timeRange.split("-")[1]; // Normal behaviour: Requires one asset at a time using control buttons ("day", "week", "month")
 
           if (!(timeRange === "day")) {
-            _context.next = 10;
+            _context.next = 11;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerDay(data));
 
-        case 10:
+        case 11:
           if (!(timeRange === "week")) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerWeekOrMonth(data, "week"));
 
-        case 12:
+        case 13:
           if (!(timeRange === "month")) {
-            _context.next = 14;
+            _context.next = 15;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerWeekOrMonth(data, "month"));
 
-        case 14:
-          if (!isRequestFromDeck) {
-            _context.next = 16;
-            break;
-          }
-
-          return _context.abrupt("return", _this.selectDataCurrentPreviousTimeframe(data, timeRangeDeck));
-
-        case 16:
+        case 15:
           if (!custom) {
-            _context.next = 18;
+            _context.next = 17;
             break;
           }
 
           return _context.abrupt("return", _this.selectDataPerTimeframe(data, timeRange.startDate, timeRange.endDate));
 
-        case 18:
-          return _context.abrupt("return", []);
+        case 17:
+          if (!isPreviousTimeRequired) {
+            _context.next = 19;
+            break;
+          }
+
+          return _context.abrupt("return", _this.selectDataCurrentPreviousTimeframe(data, multiTimeRange));
 
         case 19:
+          return _context.abrupt("return", []);
+
+        case 20:
         case "end":
           return _context.stop();
       }
