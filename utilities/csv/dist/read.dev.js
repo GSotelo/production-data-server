@@ -25,9 +25,11 @@ var mapValues = function mapValues(_ref) {
       index = _ref.index,
       value = _ref.value;
 
+  // Convert timestamp elements to dayjs objects
   if (header === "timestamp") {
     return createDateObject(value);
-  }
+  } // Parse all values to float
+
 
   if (header === "value") {
     return parseFloat(value);
@@ -35,6 +37,12 @@ var mapValues = function mapValues(_ref) {
 
   return value;
 };
+/**
+ * Here I define headers I'm using to parse the file (custom)
+ * I'm skipping the first line of each csv file. The only
+ * thing that matter is the values are ordered by each row
+ */
+
 
 var readCSV = function readCSV(path) {
   var configParser, readable;
@@ -47,7 +55,7 @@ var readCSV = function readCSV(path) {
             headers: ["variable", "timestamp", "value", "validity", "ms"],
             skipLines: 1,
             mapValues: mapValues
-          }; // Check if file exists
+          }; // Check if file exists. If not, rejected promise is caught by the wrapper function
 
           _context.next = 3;
           return regeneratorRuntime.awrap(fsPromises.access(path, fs.constants.F_OK && fs.constants.R_OK));

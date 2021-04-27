@@ -40,9 +40,13 @@ exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
   const endDate = createTodayObject(new Date());
   const startDate = endDate.subtract(1, timeRange);
 
-  arr.map(({ timestamp, value, variable }) => {
+  /**
+  * Here "timestamp", "value", "variable" refers to the 
+  * header names defined in "[read.js]" module
+  */ 
+  arr.map(({ timestamp, value, variable, validity }) => {
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
-      filteredData.push({ timestamp, value, variable });
+      filteredData.push({ timestamp, value, variable, validity });
     }
   });
 

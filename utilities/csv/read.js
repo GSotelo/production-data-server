@@ -15,18 +15,22 @@ const { createDateObject } = require("../time/time");
 const fsPromises = fs.promises;
 
 const mapValues = ({ header, index, value }) => {
-  
+  // Convert timestamp elements to dayjs objects
   if (header === "timestamp") {
     return createDateObject(value);
   }
-
+  // Parse all values to float
   if (header === "value") {
     return parseFloat(value);
   }
-
   return value;
 };
 
+/**
+ * Here I define headers I'm using to parse the file (custom)
+ * I'm skipping the first line of each csv file. The only
+ * thing that matter is the values are ordered by each row
+ */
 const readCSV = async path => {
   // Csv parser configuration
   const configParser = {
@@ -35,7 +39,7 @@ const readCSV = async path => {
     mapValues
   };
 
-  // Check if file exists
+  // Check if file exists. If not, rejected promise is caught by the wrapper function
   await fsPromises.access(path, fs.constants.F_OK && fs.constants.R_OK)
 
   // If file exists, create readbable stream

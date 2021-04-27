@@ -60,16 +60,23 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
   var filteredData = [];
   var endDate = createTodayObject(new Date());
   var startDate = endDate.subtract(1, timeRange);
+  /**
+  * Here "timestamp", "value", "variable" refers to the 
+  * header names defined in "[read.js]" module
+  */
+
   arr.map(function (_ref2) {
     var timestamp = _ref2.timestamp,
         value = _ref2.value,
-        variable = _ref2.variable;
+        variable = _ref2.variable,
+        validity = _ref2.validity;
 
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
-        variable: variable
+        variable: variable,
+        validity: validity
       });
     }
   });
