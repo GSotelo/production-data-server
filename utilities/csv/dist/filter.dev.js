@@ -35,15 +35,19 @@ exports.selectDataPerDay = function (arr) {
   var filteredData = [];
   var today = createTodayObject();
   arr.map(function (_ref) {
-    var timestamp = _ref.timestamp,
+    var variable = _ref.variable,
+        timestamp = _ref.timestamp,
         value = _ref.value,
-        variable = _ref.variable;
+        value2 = _ref.value2,
+        value3 = _ref.value3;
 
     if (timestamp && timestamp.isSame(today, "day")) {
       filteredData.push({
+        variable: variable,
         timestamp: timestamp,
         value: value,
-        variable: variable
+        value2: value2,
+        value3: value3
       });
     }
   });
@@ -66,16 +70,19 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
   */
 
   arr.map(function (_ref2) {
-    var timestamp = _ref2.timestamp,
+    var variable = _ref2.variable,
+        timestamp = _ref2.timestamp,
         value = _ref2.value,
-        variable = _ref2.variable,
-        validity = _ref2.validity;
+        value2 = _ref2.value2,
+        value3 = _ref2.value3;
 
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
       filteredData.push({
+        variable: variable,
         timestamp: timestamp,
         value: value,
-        variable: variable
+        value2: value2,
+        value3: value3
       });
     }
   });
@@ -93,15 +100,19 @@ exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
   var endDate = createTodayObject();
   var startDate = endDate.subtract(2, timeRange);
   arr.map(function (_ref3) {
-    var timestamp = _ref3.timestamp,
+    var variable = _ref3.variable,
+        timestamp = _ref3.timestamp,
         value = _ref3.value,
-        variable = _ref3.variable;
+        value2 = _ref3.value2,
+        value3 = _ref3.value3;
 
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
       filteredData.push({
+        variable: variable,
         timestamp: timestamp,
         value: value,
-        variable: variable
+        value2: value2,
+        value3: value3
       });
     }
   });

@@ -21,9 +21,9 @@ exports.selectDataPerDay = arr => {
   let filteredData = [];
   const today = createTodayObject();
 
-  arr.map(({ timestamp, value, variable }) => {
+  arr.map(({ variable, timestamp, value, value2, value3 }) => {
     if (timestamp && timestamp.isSame(today, "day")) {
-      filteredData.push({ timestamp, value, variable });
+      filteredData.push({ variable, timestamp, value, value2, value3 });
     }
   });
 
@@ -44,9 +44,9 @@ exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
   * Here "timestamp", "value", "variable" refers to the 
   * header names defined in "[read.js]" module
   */ 
-  arr.map(({ timestamp, value, variable, validity }) => {
+  arr.map(({ variable, timestamp, value, value2 , value3 }) => {
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
-      filteredData.push({ timestamp, value, variable });
+      filteredData.push({ variable, timestamp, value, value2, value3  });
     }
   });
 
@@ -64,9 +64,9 @@ exports.selectDataCurrentPreviousTimeframe = (arr, timeRange) => {
   const endDate = createTodayObject();
   const startDate = endDate.subtract(2, timeRange);
 
-  arr.map(({ timestamp, value, variable }) => {
+  arr.map(({ variable, timestamp, value, value2, value3 }) => {
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
-      filteredData.push({ timestamp, value, variable });
+      filteredData.push({ variable, timestamp, value, value2, value3 });
     }
   });
 

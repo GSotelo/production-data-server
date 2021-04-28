@@ -25,7 +25,7 @@ exports.flexibleCtrl = wrapper(function _callee2(req, res, next) {
 
           startDate = req.body.startDate;
           endDate = req.body.endDate;
-          filename = req.body.filename;
+          filename = req.body.filename; // In case, we want to get data for multiple files
 
           if (!_.isObject(filename)) {
             _context2.next = 9;

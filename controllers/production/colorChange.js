@@ -10,8 +10,7 @@ const { filterDataFromFile } = require("../../utilities/csv/filter");
 exports.colorChangeQuickestLongestCtrl = wrapper(async (req, res, next) => {
   console.log("[colorChangeQuickestLongestCtrl]: Color change quickest/longest");
   const timeRange = req.params.timeRange;
-  const filenames = ["color_change_quickest.csv","color_change_longest.csv"];
-  const filteredData = await Promise.all(filenames.map(async el => await filterDataFromFile(el, timeRange)));
+  const filteredData = await filterDataFromFile("color_change_quickest_longest.csv", timeRange);
   res.send(filteredData);
 });
 

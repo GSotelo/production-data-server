@@ -17,6 +17,7 @@ exports.flexibleCtrl = wrapper(async (req, res, next) => {
   const endDate = req.body.endDate;
   const filename = req.body.filename;
 
+  // In case, we want to get data for multiple files
   if (_.isObject(filename)) {
     // Get data for all elements
     const data = await Promise.all(filename.map(async el => await filterDataFromFile(el, { startDate, endDate })));
