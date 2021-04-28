@@ -46,7 +46,7 @@ exports.selectDataPerWeekOrMonth = (arr, timeRange) => {
   */ 
   arr.map(({ timestamp, value, variable, validity }) => {
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
-      filteredData.push({ timestamp, value, variable, validity });
+      filteredData.push({ timestamp, value, variable });
     }
   });
 

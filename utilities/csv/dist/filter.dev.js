@@ -75,8 +75,7 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
       filteredData.push({
         timestamp: timestamp,
         value: value,
-        variable: variable,
-        validity: validity
+        variable: variable
       });
     }
   });
