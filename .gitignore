@@ -3,5 +3,5 @@
 
 # production
 /build
-/csv/
+/csv
 /.vscode
