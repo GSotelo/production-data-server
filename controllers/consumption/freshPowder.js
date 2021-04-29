@@ -2,7 +2,14 @@
  * Own modules
  */
 const wrapper = require("../../utilities/wrapper/wrapper");
+const readFile = require("../../utilities/json/read");
+const rootPath = require("../../utilities/rootPath/rootPath");
 const { filterDataFromFile } = require("../../utilities/csv/filter");
+
+/**
+ * Native modules
+ */
+ const path = require("path");
 
 /**
  * Controllers
@@ -29,4 +36,25 @@ exports.bigbagPowderCtrl = wrapper(async (req, res, next) => {
   //const filteredData = await filterDataFromFile("powder_big_bag.csv", timeRange)
   const filteredData = await filterDataFromFile(`powder_big_bag_${id}.csv`, timeRange);
   res.send(filteredData);
+});
+
+exports.dropdownCtrl = wrapper(async (req, res, next) => {
+  console.log("[dropdownCtrl]: Data for dropdown elements");
+  const id = req.params.id;
+
+  // If "id" does not match, then send default data
+  const defaultDropdownOptions = [
+    { key: 1, text: "BB", value: 1 }
+  ];
+
+  // Read configuration file (JSON)
+  const filepath = path.join(rootPath, "configuration", "consumption", "freshPowder", "bigbags.json");
+  const dropdownOptions = await readFile(filepath);
+
+  // Send response
+  if (id === "bigbags") {
+    res.send(dropdownOptions);
+  } else {
+    res.send(defaultDropdownOptions)
+  }
 });
