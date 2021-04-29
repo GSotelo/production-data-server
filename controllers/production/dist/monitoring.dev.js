@@ -13,56 +13,21 @@ var _require = require("../../utilities/csv/filter"),
 
 
 exports.runningHoursCtrl = wrapper(function _callee(req, res, next) {
-  var filteredData, id, timeRange;
+  var timeRange, filteredData;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           console.log("[runningHoursCtrl]: Request running hours");
-          filteredData = [];
-          id = req.params.id;
-          timeRange = req.params.timeRange; // Read, parse and filter csv file based on given time range
+          timeRange = req.params.timeRange;
+          _context.next = 4;
+          return regeneratorRuntime.awrap(filterDataFromFile("running_hours.csv", timeRange));
 
-          if (!(id === "1")) {
-            _context.next = 8;
-            break;
-          }
-
-          _context.next = 7;
-          return regeneratorRuntime.awrap(filterDataFromFile("hours_sprayed.csv", timeRange));
-
-        case 7:
+        case 4:
           filteredData = _context.sent;
-
-        case 8:
-          if (!(id === "2")) {
-            _context.next = 12;
-            break;
-          }
-
-          _context.next = 11;
-          return regeneratorRuntime.awrap(filterDataFromFile("hours_start_stop.csv", timeRange));
-
-        case 11:
-          filteredData = _context.sent;
-
-        case 12:
-          if (!(id === "3")) {
-            _context.next = 16;
-            break;
-          }
-
-          _context.next = 15;
-          return regeneratorRuntime.awrap(filterDataFromFile("hours_total_running.csv", timeRange));
-
-        case 15:
-          filteredData = _context.sent;
-
-        case 16:
-          // Send http response (compressed)
           res.send(filteredData);
 
-        case 17:
+        case 6:
         case "end":
           return _context.stop();
       }

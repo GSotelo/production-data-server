@@ -9,16 +9,8 @@ const { filterDataFromFile } = require("../../utilities/csv/filter");
  */
 exports.runningHoursCtrl = wrapper(async (req, res, next) => {
   console.log("[runningHoursCtrl]: Request running hours");
-  let filteredData = [];
-  const id = req.params.id;
   const timeRange = req.params.timeRange;
-
-  // Read, parse and filter csv file based on given time range
-  if (id === "1") filteredData = await filterDataFromFile("hours_sprayed.csv", timeRange)
-  if (id === "2") filteredData = await filterDataFromFile("hours_start_stop.csv", timeRange)
-  if (id === "3") filteredData = await filterDataFromFile("hours_total_running.csv", timeRange)
-
-  // Send http response (compressed)
+  const filteredData = await filterDataFromFile("running_hours.csv", timeRange)
   res.send(filteredData);
 });
 

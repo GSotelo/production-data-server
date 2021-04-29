@@ -15,7 +15,7 @@ const { flexibleCtrl } = require("../controllers/flexible/flexible");
 router.get("/coated-surface/:timeRange", coatedSurfaceCtrl);
 router.get("/conveyor-speed/:timeRange", conveyorSpeedCtrl);
 router.get("/line-density/:timeRange", lineDensityCtrl);
-router.get("/running-hours/:id/:timeRange", runningHoursCtrl);
+router.get("/running-hours/:timeRange", runningHoursCtrl);
 router.get("/spray-mode/:timeRange", sprayModeCtrl);
 router.get("/system-status/:timeRange", systemStatusCtrl);
 router.post("/", flexibleCtrl);
