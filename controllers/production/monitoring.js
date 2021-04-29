@@ -16,12 +16,16 @@ exports.runningHoursCtrl = wrapper(async (req, res, next) => {
 
 exports.sprayModeCtrl = wrapper(async (req, res, next) => {
   console.log("[sprayModeCtrl]: Spray mode");
-  res.send({ status: true, messenger: "Spray mode controller" });
+  const timeRange = req.params.timeRange;
+  const filteredData = await filterDataFromFile("sprayed_mode.csv", timeRange)
+  res.send(filteredData);
 });
 
 exports.systemStatusCtrl = wrapper(async (req, res, next) => {
   console.log("[systemStatusCtrl]: System status");
-  res.send({ status: true, messenger: "System status controller" });
+  const timeRange = req.params.timeRange;
+  const filteredData = await filterDataFromFile("system_status.csv", timeRange)
+  res.send(filteredData);
 });
 
 exports.coatedSurfaceCtrl = wrapper(async (req, res, next) => {

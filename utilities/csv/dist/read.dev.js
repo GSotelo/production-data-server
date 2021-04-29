@@ -31,7 +31,7 @@ var mapValues = function mapValues(_ref) {
   } // Parse all values to float
 
 
-  if (header === "value" || header === "value2" || header === "value3") {
+  if (header === "value" || header === "value2" || header === "value3" || header === "value4") {
     return parseFloat(value);
   }
 
@@ -52,7 +52,7 @@ var readCSV = function readCSV(path) {
         case 0:
           // Csv parser configuration
           configParser = {
-            headers: ["variable", "timestamp", "value", "value2", "value3"],
+            headers: ["variable", "timestamp", "value", "value2", "value3", "value4"],
             skipLines: 1,
             mapValues: mapValues
           }; // Check if file exists. If not, rejected promise is caught by the wrapper function

@@ -39,7 +39,8 @@ exports.selectDataPerDay = function (arr) {
         timestamp = _ref.timestamp,
         value = _ref.value,
         value2 = _ref.value2,
-        value3 = _ref.value3;
+        value3 = _ref.value3,
+        value4 = _ref.value4;
 
     if (timestamp && timestamp.isSame(today, "day")) {
       filteredData.push({
@@ -47,7 +48,8 @@ exports.selectDataPerDay = function (arr) {
         timestamp: timestamp,
         value: value,
         value2: value2,
-        value3: value3
+        value3: value3,
+        value4: value4
       });
     }
   });
@@ -74,7 +76,8 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
         timestamp = _ref2.timestamp,
         value = _ref2.value,
         value2 = _ref2.value2,
-        value3 = _ref2.value3;
+        value3 = _ref2.value3,
+        value4 = _ref2.value4;
 
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "[]")) {
       filteredData.push({
@@ -82,7 +85,8 @@ exports.selectDataPerWeekOrMonth = function (arr, timeRange) {
         timestamp: timestamp,
         value: value,
         value2: value2,
-        value3: value3
+        value3: value3,
+        value4: value4
       });
     }
   });
@@ -104,7 +108,8 @@ exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
         timestamp = _ref3.timestamp,
         value = _ref3.value,
         value2 = _ref3.value2,
-        value3 = _ref3.value3;
+        value3 = _ref3.value3,
+        value4 = _ref3.value4;
 
     if (timestamp && timestamp.isBetween(startDate, endDate, "day", "(]")) {
       filteredData.push({
@@ -112,7 +117,8 @@ exports.selectDataCurrentPreviousTimeframe = function (arr, timeRange) {
         timestamp: timestamp,
         value: value,
         value2: value2,
-        value3: value3
+        value3: value3,
+        value4: value4
       });
     }
   });

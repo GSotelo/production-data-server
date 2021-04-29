@@ -20,7 +20,7 @@ const mapValues = ({ header, index, value }) => {
     return createDateObject(value);
   }
   // Parse all values to float
-  if (header === "value" || header === "value2" || header === "value3") {
+  if (header === "value" || header === "value2" || header === "value3" || header === "value4") {
     return parseFloat(value);
   }
 
@@ -35,7 +35,7 @@ const mapValues = ({ header, index, value }) => {
 const readCSV = async path => {
   // Csv parser configuration
   const configParser = {
-    headers: ["variable", "timestamp", "value", "value2", "value3"],
+    headers: ["variable", "timestamp", "value", "value2", "value3", "value4"],
     skipLines: 1,
     mapValues
   };
