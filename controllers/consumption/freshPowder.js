@@ -44,7 +44,7 @@ exports.dropdownCtrl = wrapper(async (req, res, next) => {
 
   // If "id" does not match, then send default data
   const defaultDropdownOptions = [
-    { key: 1, text: "BB", value: 1 }
+    { key: 1, text: "BB1", value: 1 }
   ];
 
   // Read configuration file (JSON)
