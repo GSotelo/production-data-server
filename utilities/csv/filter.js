@@ -121,6 +121,10 @@ exports.filterDataFromFile = async (filename, timeRange) => {
   if (timeRange === "week") return this.selectDataPerWeekOrMonth(data, "week");
   if (timeRange === "month") return this.selectDataPerWeekOrMonth(data, "month");
 
+  // Use case: Get powder type total consumption per type 
+  if (timeRange === "allTime") return data;
+
+
   // Normal behaviour: Requires one asset at a time using datepickers
   if (custom) return this.selectDataPerTimeframe(data, timeRange.startDate, timeRange.endDate);
 

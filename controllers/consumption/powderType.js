@@ -9,7 +9,7 @@ const { filterDataFromFile } = require("../../utilities/csv/filter");
 /**
  * Native modules
  */
- const path = require("path");
+const path = require("path");
 
 /**
  * Controllers
@@ -20,6 +20,13 @@ exports.powderTypeCtrl = wrapper(async (req, res, next) => {
   const id = req.params.id;
   const filteredData = await filterDataFromFile(`consumption_powder_type_${id}.csv`, timeRange);
   res.send(filteredData);
+});
+
+exports.totalPowderTypeCtrl = wrapper(async (req, res, next) => {
+  console.log("[totalPowderTypeCtrl]: Total consumption per powder type");
+  const files = ["consumption_powder_type_1.csv", "consumption_powder_type_2.csv"];
+  const data = await Promise.all(files.map(async file => await filterDataFromFile(file, "allTime")));
+  res.send(data);
 });
 
 exports.dropdownCtrl = wrapper(async (req, res, next) => {
