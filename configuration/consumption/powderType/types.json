@@ -1,8 +1,8 @@
 [
-  { "key": 1, "text": "T1", "value": 1 },
-  { "key": 2, "text": "T2", "value": 2 },
-  { "key": 3, "text": "T3", "value": 3 },
-  { "key": 4, "text": "T4", "value": 4 },
-  { "key": 5, "text": "T5", "value": 5 },
-  { "key": 6, "text": "T6", "value": 6 }
+  { "key": 1, "text": "T1", "powderDescription":"Powder description 1", "value": 1 },
+  { "key": 2, "text": "T2", "powderDescription":"Powder description 2", "value": 2 },
+  { "key": 3, "text": "T3", "powderDescription":"Powder description 3", "value": 3 },
+  { "key": 4, "text": "T4", "powderDescription":"Powder description 4", "value": 4 },
+  { "key": 5, "text": "T5", "powderDescription":"Powder description 5", "value": 5 },
+  { "key": 6, "text": "T6", "powderDescription":"Powder description 6", "value": 6 }
 ]
