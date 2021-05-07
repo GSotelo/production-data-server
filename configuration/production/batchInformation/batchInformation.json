@@ -1,197 +1,887 @@
 [
   {
-    "date": "2021-01-01 19:58",
-    "batchNumber": 1,
-    "duration": 4,
-    "color": "red",
-    "startTime": "12:07:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-01-01 19:58",
+      "batchNumber": 20067121,
+      "duration": 9.7,
+      "color": "RAL 1012",
+      "startTime": "12:07:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 20067121,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-01-17 17:58",
-    "batchNumber": 2,
-    "duration": 4,
-    "color": "green",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-01-17 17:58",
+      "batchNumber": 696533,
+      "duration": 7.2,
+      "color": "RAL 3003",
+      "startTime": "13:27:00",
+      "stopTime": "17:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 696533,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-01-23 09:37",
-    "batchNumber": 3,
-    "duration": 4,
-    "color": "yellow",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-01-23 09:37",
+      "batchNumber": 306325,
+      "duration": 3.7,
+      "color": "RAL 4012",
+      "startTime": "13:37:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 306325,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-02-14 13:16",
-    "batchNumber": 4,
-    "duration": 4,
-    "color": "orange",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-02-14 13:16",
+      "batchNumber": 6768,
+      "duration": 5.7,
+      "color": "RAL 5014",
+      "startTime": "17:00:00",
+      "stopTime": "19:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 6768,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-02-19 23:58",
-    "batchNumber": 5,
-    "duration": 4,
-    "color": "blue",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-02-19 23:58",
+      "batchNumber": 712596,
+      "duration": 8.6,
+      "color": "RAL 5019",
+      "startTime": "11:00:00",
+      "stopTime": "13:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 712596,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-02-23 14:18",
-    "batchNumber": 6,
-    "duration": 4,
-    "color": "brown",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-02-23 14:18",
+      "batchNumber": 747208,
+      "duration": 7.9,
+      "color": "RAL 6027",
+      "startTime": "18:00:00",
+      "stopTime": "21:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 747208,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-03-06 21:51",
-    "batchNumber": 7,
-    "duration": 4,
-    "color": "red",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-03-06 21:51",
+      "batchNumber": 451837,
+      "duration": 4.8,
+      "color": "RAL 9016",
+      "startTime": "17:00:00",
+      "stopTime": "18:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 451837,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-03-19 13:58",
-    "batchNumber": 8,
-    "duration": 4,
-    "color": "green",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-03-19 13:58",
+      "batchNumber": 748351,
+      "duration": 1.7,
+      "color": "RAL 6038",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 748351,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-03-30 09:42",
-    "batchNumber": 9,
-    "duration": 4,
-    "color": "yellow",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-03-30 09:42",
+      "batchNumber": 497598,
+      "duration": 6.7,
+      "color": "RAL 7034",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 97,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 497598,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-04-01 19:48",
-    "batchNumber": 10,
-    "duration": 4,
-    "color": "orange",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-04-01 19:48",
+      "batchNumber": 311123,
+      "duration": 7.8,
+      "color": "RAL 9010",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 311123,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-04-15 15:36",
-    "batchNumber": 11,
-    "duration": 4,
-    "color": "blue",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-04-15 15:36",
+      "batchNumber": 860028,
+      "duration": 3.7,
+      "color": "RAL 1018",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 860028,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-04-28 16:45",
-    "batchNumber": 12,
-    "duration": 4,
-    "color": "brown",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-04-28 16:45",
+      "batchNumber": 499866,
+      "duration": 2.72,
+      "color": "RAL 1012",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 499866,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-04-30 19:15",
-    "batchNumber": 13,
-    "duration": 4,
-    "color": "red",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-04-30 19:15",
+      "batchNumber": 118846,
+      "duration": 2.73,
+      "color": "RAL 5003",
+      "startTime": "17:00:00",
+      "stopTime": "19:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 118846,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-05-01 05:43",
-    "batchNumber": 14,
-    "duration": 4,
-    "color": "green",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-05-01 05:43",
+      "batchNumber": 510326,
+      "duration": 3.11,
+      "color": "RAL 5012",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 510326,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   },
   {
-    "date": "2021-05-06 13:18",
-    "batchNumber": 15,
-    "duration": 4,
-    "color": "yellow",
-    "startTime": "12:00:00",
-    "stopTime": "15:56:30",
+    "overview": {
+      "date": "2021-05-06 13:18",
+      "batchNumber": 588976,
+      "duration": 2.73,
+      "color": "RAL 4011",
+      "startTime": "12:00:00",
+      "stopTime": "15:56:30"
+    },
+    "details": {
+      "batchInformation": {
+        "product": "Flat panel",
+        "coatedProducts": 117
+      },
+      "systemInformation": {
+        "coatingTime": 19.1,
+        "standbyTime": 4.5,
+        "downTime": 3.9
+      },
+      "estimatedCosts": {
+        "powder": 373.19,
+        "energy": 175.95,
+        "air": 277.49
+      },
+      "totalConsumption": {
+        "powder": 185.77,
+        "energy": 620.14,
+        "air": 16.7
+      },
+      "colorChange": {
+        "totalTime": 7.9,
+        "totalNumber": 17,
+        "coatedSurface": 26.78
+      },
+      "conveyorInformation": {
+        "stopTime": 3.7,
+        "averageSpeed": 3.7,
+        "throughput": 19
+      },
+      "instrumentation": {
+        "temperature": [17, 23, 31],
+        "humidity": [10, 17, 21],
+        "pressure": [6, 5, 4]
+      }
+    },
     "parameters": {
-      "kV": 100,
-      "powder": "20%",
-      "air": 15
+      "batchNumber": 588976,
+      "air": 100,
+      "assistAir": 20,
+      "airCompensation": 15,
+      "pumpMode": "fast",
+      "kV": 90,
+      "uA": 15,
+      "afc": "off",
+      "beforeSpray": 200,
+      "afterSpray": 200,
+      "enableGun": "on"
     }
   }
 ]
