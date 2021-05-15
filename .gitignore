@@ -3,5 +3,7 @@
 
 # production
 /build
-/csv
 /.vscode
+dist
+
+
