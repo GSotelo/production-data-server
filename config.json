@@ -1,0 +1,19 @@
+{
+  "apps": [
+    {
+      "name": "production-data-server",
+      "script": "server.js",
+      "instances": "max",
+      "watch":true,
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "10000"
+      },
+      "env_development": {
+        "NODE_ENV": "development",
+        "PORT": "5000"
+      }
+    }
+  ]
+}

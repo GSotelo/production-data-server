@@ -62,10 +62,12 @@ app.use("/batch-information", batchInformationRoutes);
 app.use(reactRoutes);
 
 /**
- * Gerneral error handler
+ * General error handler
  */
 app.use(errorCtrl);
 
+// TEST MODE
+console.log("Env variables", process.env.PORT, process.env.NODE_ENV);
 /**
  * Running server
  */
