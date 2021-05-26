@@ -35,6 +35,13 @@ exports.coatedSurfaceCtrl = wrapper(async (req, res, next) => {
   res.send(filteredData);
 });
 
+exports.coatedPartsCtrl = wrapper(async (req, res, next) => {
+  console.log("[coatedPartsCtrl]: Coated parts");
+  const timeRange = req.params.timeRange;
+  const filteredData = await filterDataFromFile("coated_parts.csv", timeRange);
+  res.send(filteredData);
+});
+
 exports.lineDensityCtrl = wrapper(async (req, res, next) => {
   console.log("[lineDensityCtrl]: Line density");
   const timeRange = req.params.timeRange;
