@@ -71,7 +71,7 @@ console.log("Env variables", process.env.PORT, process.env.NODE_ENV);
 /**
  * Running server
  */
-app.listen(port, () => console.log('Server listening on port 5000'))
+app.listen(port, () => console.log('[Nodemon] -> Server listening on port 5000'))
 
 /**
  * TO DO: RESTART WITH PROCESS MANAGER
